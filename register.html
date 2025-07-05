@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - GrowKid</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .register-form {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .register-form::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .register-form::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .register-form::-webkit-scrollbar-thumb {
+            background: #4CAF50;
+            border-radius: 10px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .child-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .child-info h3 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-logo">
+                <span>GrowKid</span>
+            </div>
+            <nav class="header-nav">
+                <a href="#features">Recursos</a>
+                <a href="#about">Sobre</a>
+                <a href="#contact">Contato</a>
+                <a href="#help">Ajuda</a>
+            </nav>
+            <div class="header-actions">
+                <a href="index.html" class="btn-login">Entrar</a>
+                <a href="register.html" class="btn-register">Cadastrar</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="logo">
+                    <h1>GrowKid</h1>
+                </div>
+                <p class="subtitle">Crie sua conta e comece a acompanhar</p>
+            </div>
+
+            <div class="register-form">
+                <form id="registerForm">
+                    <h2>Dados dos Responsáveis</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Nome</label>
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="firstName" name="firstName" placeholder="Seu nome" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Sobrenome</label>
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="lastName" name="lastName" placeholder="Seu sobrenome" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <div class="input-group">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="password" name="password" placeholder="Crie uma senha" required>
+                                <button type="button" class="toggle-password" onclick="togglePassword('password', 'eyeIcon1')">
+                                    <i class="fas fa-eye" id="eyeIcon1"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Senha</label>
+                            <div class="input-group">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" required>
+                                <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword', 'eyeIcon2')">
+                                    <i class="fas fa-eye" id="eyeIcon2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999">
+                        </div>
+                    </div>
+
+                    <div class="child-info">
+                        <h3><i class="fas fa-baby"></i> Dados da Criança</h3>
+                        
+                        <div class="form-group">
+                            <label for="childName">Nome da Criança</label>
+                            <div class="input-group">
+                                <i class="fas fa-child"></i>
+                                <input type="text" id="childName" name="childName" placeholder="Nome do seu pequeno" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="childBirthDate">Data de Nascimento</label>
+                                <div class="input-group">
+                                    <i class="fas fa-calendar"></i>
+                                    <input type="date" id="childBirthDate" name="childBirthDate" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="childGender">Sexo</label>
+                                <div class="input-group">
+                                    <i class="fas fa-venus-mars"></i>
+                                    <select id="childGender" name="childGender" required>
+                                        <option value="">Selecione</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Feminino</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="childWeight">Peso ao Nascer (kg)</label>
+                                <div class="input-group">
+                                    <i class="fas fa-weight"></i>
+                                    <input type="number" id="childWeight" name="childWeight" placeholder="3.5" step="0.1" min="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="childHeight">Altura ao Nascer (cm)</label>
+                                <div class="input-group">
+                                    <i class="fas fa-ruler-vertical"></i>
+                                    <input type="number" id="childHeight" name="childHeight" placeholder="50" step="0.1" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="terms" required>
+                            <span class="checkmark"></span>
+                            Aceito os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>
+                        </label>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="newsletter">
+                            <span class="checkmark"></span>
+                            Quero receber dicas e novidades por email
+                        </label>
+                    </div>
+
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Criar Conta
+                    </button>
+                </form>
+
+                <div class="register-link">
+                    <p>Já tem uma conta? <a href="index.html">Faça login aqui</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Dados Seguros</h3>
+                <p>Suas informações e da sua família estão protegidas com criptografia de ponta</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Acesso Mobile</h3>
+                <p>Acompanhe o desenvolvimento do seu filho onde estiver, pelo celular ou computador</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Família Conectada</h3>
+                <p>Compartilhe momentos especiais com outros familiares e cuidadores</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>GrowKid</span>
+                    </div>
+                    <p>Acompanhe cada momento especial do crescimento do seu filho com carinho e tecnologia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#">Acompanhamento de Crescimento</a></li>
+                        <li><a href="#">Calendário de Vacinas</a></li>
+                        <li><a href="#">Marcos do Desenvolvimento</a></li>
+                        <li><a href="#">Galeria de Fotos</a></li>
+                        <li><a href="#">Relatórios Médicos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Suporte</h3>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Nossa Missão</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> contato@growkid.com</p>
+                        <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                        <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+                    </div>
+                    <div class="app-downloads">
+                        <h4>Baixe nosso app</h4>
+                        <a href="#" class="app-store-btn">
+                            <i class="fab fa-apple"></i> App Store
+                        </a>
+                        <a href="#" class="play-store-btn">
+                            <i class="fab fa-google-play"></i> Google Play
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GrowKid. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Função para alternar visibilidade da senha
+        function togglePassword(inputId, iconId) {
+            const passwordInput = document.getElementById(inputId);
+            const eyeIcon = document.getElementById(iconId);
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+
+        // Máscara para telefone
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 11) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            } else if (value.length >= 7) {
+                value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+            } else if (value.length >= 3) {
+                value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+            }
+            e.target.value = value;
+        });
+
+        // Validação do formulário
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validações
+            if (data.password !== data.confirmPassword) {
+                showMessage('As senhas não coincidem!', 'error');
+                return;
+            }
+            
+            if (data.password.length < 6) {
+                showMessage('A senha deve ter pelo menos 6 caracteres!', 'error');
+                return;
+            }
+            
+            if (!data.terms) {
+                showMessage('Você deve aceitar os termos de uso!', 'error');
+                return;
+            }
+            
+            // Simular cadastro
+            showMessage('Criando sua conta...', 'loading');
+            
+            setTimeout(() => {
+                showMessage('Conta criada com sucesso! Redirecionando...', 'success');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            }, 2000);
+        });
+
+        // Função para mostrar mensagens (mesma do script.js)
+        function showMessage(message, type) {
+            const existingMessage = document.querySelector('.message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = message;
+            
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 10px;
+                color: white;
+                font-weight: 500;
+                z-index: 1000;
+                animation: slideInRight 0.3s ease;
+            `;
+            
+            switch(type) {
+                case 'success':
+                    messageDiv.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+                    break;
+                case 'error':
+                    messageDiv.style.background = 'linear-gradient(135deg, #f44336, #d32f2f)';
+                    break;
+                case 'loading':
+                    messageDiv.style.background = 'linear-gradient(135deg, #2196F3, #1976D2)';
+                    break;
+            }
+            
+            document.body.appendChild(messageDiv);
+            
+            if (type !== 'loading') {
+                setTimeout(() => {
+                    messageDiv.style.animation = 'slideOutRight 0.3s ease';
+                    setTimeout(() => {
+                        if (messageDiv.parentNode) {
+                            messageDiv.remove();
+                        }
+                    }, 300);
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
