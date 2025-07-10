@@ -104,7 +104,7 @@ GrowKid is a modern and responsive web platform dedicated to tracking child deve
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 Licença
+## 📝 License
 
 This project is open for learning purposes. Feel free to get inspired, but don't copy.
 
