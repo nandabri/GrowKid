@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - GrowKid</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .register-form {
@@ -13,27 +15,27 @@
             overflow-y: auto;
             padding-right: 10px;
         }
-        
+
         .register-form::-webkit-scrollbar {
             width: 6px;
         }
-        
+
         .register-form::-webkit-scrollbar-track {
             background: #f1f1f1;
             border-radius: 10px;
         }
-        
+
         .register-form::-webkit-scrollbar-thumb {
             background: #4CAF50;
             border-radius: 10px;
         }
-        
+
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
-        
+
         .child-info {
             background: #f8f9fa;
             padding: 20px;
@@ -41,7 +43,7 @@
             margin: 20px 0;
             border-left: 4px solid #4CAF50;
         }
-        
+
         .child-info h3 {
             color: #4CAF50;
             margin-bottom: 15px;
@@ -49,7 +51,7 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         @media (max-width: 768px) {
             .form-row {
                 grid-template-columns: 1fr;
@@ -57,6 +59,7 @@
         }
     </style>
 </head>
+
 <body>
     <header class="site-header">
         <div class="header-container">
@@ -81,173 +84,181 @@
 
     <main class="main-content">
         <div class="container">
-        <div class="login-container">
-            <div class="login-header">
-                <div class="logo">
-                    <h1>GrowKid</h1>
+            <div class="login-container">
+                <div class="login-header">
+                    <div class="logo">
+                        <h1>GrowKid</h1>
+                    </div>
+                    <p class="subtitle">Crie sua conta e comece a acompanhar</p>
                 </div>
-                <p class="subtitle">Crie sua conta e comece a acompanhar</p>
-            </div>
 
-            <div class="register-form">
-                <form id="registerForm">
-                    <h2>Dados dos Responsáveis</h2>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">Nome</label>
-                            <div class="input-group">
-                                <i class="fas fa-user"></i>
-                                <input type="text" id="firstName" name="firstName" placeholder="Seu nome" required>
+                <div class="register-form">
+                    <form id="registerForm">
+                        <h2>Dados dos Responsáveis</h2>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Nome</label>
+                                <div class="input-group">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="firstName" name="firstName" placeholder="Seu nome" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Sobrenome</label>
+                                <div class="input-group">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Seu sobrenome"
+                                        required>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="lastName">Sobrenome</label>
+                            <label for="email">Email</label>
                             <div class="input-group">
-                                <i class="fas fa-user"></i>
-                                <input type="text" id="lastName" name="lastName" placeholder="Seu sobrenome" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <div class="input-group">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="password">Senha</label>
-                            <div class="input-group">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" id="password" name="password" placeholder="Crie uma senha" required>
-                                <button type="button" class="toggle-password" onclick="togglePassword('password', 'eyeIcon1')">
-                                    <i class="fas fa-eye" id="eyeIcon1"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirmPassword">Confirmar Senha</label>
-                            <div class="input-group">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" required>
-                                <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword', 'eyeIcon2')">
-                                    <i class="fas fa-eye" id="eyeIcon2"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Telefone</label>
-                        <div class="input-group">
-                            <i class="fas fa-phone"></i>
-                            <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999">
-                        </div>
-                    </div>
-
-                    <div class="child-info">
-                        <h3><i class="fas fa-baby"></i> Dados da Criança</h3>
-                        
-                        <div class="form-group">
-                            <label for="childName">Nome da Criança</label>
-                            <div class="input-group">
-                                <i class="fas fa-child"></i>
-                                <input type="text" id="childName" name="childName" placeholder="Nome do seu pequeno" required>
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="childBirthDate">Data de Nascimento</label>
+                                <label for="password">Senha</label>
                                 <div class="input-group">
-                                    <i class="fas fa-calendar"></i>
-                                    <input type="date" id="childBirthDate" name="childBirthDate" required>
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="password" name="password" placeholder="Crie uma senha"
+                                        required>
+                                    <button type="button" class="toggle-password"
+                                        onclick="togglePassword('password', 'eyeIcon1')">
+                                        <i class="fas fa-eye" id="eyeIcon1"></i>
+                                    </button>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="childGender">Sexo</label>
+                                <label for="confirmPassword">Confirmar Senha</label>
                                 <div class="input-group">
-                                    <i class="fas fa-venus-mars"></i>
-                                    <select id="childGender" name="childGender" required>
-                                        <option value="">Selecione</option>
-                                        <option value="M">Masculino</option>
-                                        <option value="F">Feminino</option>
-                                    </select>
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="confirmPassword" name="confirmPassword"
+                                        placeholder="Confirme sua senha" required>
+                                    <button type="button" class="toggle-password"
+                                        onclick="togglePassword('confirmPassword', 'eyeIcon2')">
+                                        <i class="fas fa-eye" id="eyeIcon2"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <div class="input-group">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999">
+                            </div>
+                        </div>
+
+                        <div class="child-info">
+                            <h3><i class="fas fa-baby"></i> Dados da Criança</h3>
+
                             <div class="form-group">
-                                <label for="childWeight">Peso ao Nascer (kg)</label>
+                                <label for="childName">Nome da Criança</label>
                                 <div class="input-group">
-                                    <i class="fas fa-weight"></i>
-                                    <input type="number" id="childWeight" name="childWeight" placeholder="3.5" step="0.1" min="0">
+                                    <i class="fas fa-child"></i>
+                                    <input type="text" id="childName" name="childName" placeholder="Nome do seu pequeno"
+                                        required>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="childHeight">Altura ao Nascer (cm)</label>
-                                <div class="input-group">
-                                    <i class="fas fa-ruler-vertical"></i>
-                                    <input type="number" id="childHeight" name="childHeight" placeholder="50" step="0.1" min="0">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="childBirthDate">Data de Nascimento</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-calendar"></i>
+                                        <input type="date" id="childBirthDate" name="childBirthDate" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="childGender">Sexo</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-venus-mars"></i>
+                                        <select id="childGender" name="childGender" required>
+                                            <option value="">Selecione</option>
+                                            <option value="M">Masculino</option>
+                                            <option value="F">Feminino</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="childWeight">Peso ao Nascer (kg)</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-weight"></i>
+                                        <input type="number" id="childWeight" name="childWeight" placeholder="3.5"
+                                            step="0.1" min="0">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="childHeight">Altura ao Nascer (cm)</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-ruler-vertical"></i>
+                                        <input type="number" id="childHeight" name="childHeight" placeholder="50"
+                                            step="0.1" min="0">
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="terms" required>
+                                <span class="checkmark"></span>
+                                Aceito os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>
+                            </label>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="newsletter">
+                                <span class="checkmark"></span>
+                                Quero receber dicas e novidades por email
+                            </label>
+                        </div>
+
+                        <button type="submit" class="login-btn">
+                            <i class="fas fa-user-plus"></i>
+                            Criar Conta
+                        </button>
+                    </form>
+
+                    <div class="register-link">
+                        <p>Já tem uma conta? <a href="index.html">Faça login aqui</a></p>
                     </div>
-
-                    <div class="form-options">
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="terms" required>
-                            <span class="checkmark"></span>
-                            Aceito os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>
-                        </label>
-                    </div>
-
-                    <div class="form-options">
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="newsletter">
-                            <span class="checkmark"></span>
-                            Quero receber dicas e novidades por email
-                        </label>
-                    </div>
-
-                    <button type="submit" class="login-btn">
-                        <i class="fas fa-user-plus"></i>
-                        Criar Conta
-                    </button>
-                </form>
-
-                <div class="register-link">
-                    <p>Já tem uma conta? <a href="index.html">Faça login aqui</a></p>
                 </div>
             </div>
-        </div>
 
-        <div class="info-section">
-            <div class="feature-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Dados Seguros</h3>
-                <p>Suas informações e da sua família estão protegidas com criptografia de ponta</p>
+            <div class="info-section">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Dados Seguros</h3>
+                    <p>Suas informações e da sua família estão protegidas com criptografia de ponta</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Acesso Mobile</h3>
+                    <p>Acompanhe o desenvolvimento do seu filho onde estiver, pelo celular ou computador</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Família Conectada</h3>
+                    <p>Compartilhe momentos especiais com outros familiares e cuidadores</p>
+                </div>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Acesso Mobile</h3>
-                <p>Acompanhe o desenvolvimento do seu filho onde estiver, pelo celular ou computador</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-users"></i>
-                <h3>Família Conectada</h3>
-                <p>Compartilhe momentos especiais com outros familiares e cuidadores</p>
-            </div>
-        </div>
     </main>
 
     <footer class="site-footer">
@@ -265,7 +276,7 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Recursos</h3>
                     <ul>
@@ -276,7 +287,7 @@
                         <li><a href="#">Relatórios Médicos</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Suporte</h3>
                     <ul>
@@ -287,7 +298,7 @@
                         <li><a href="#">Feedback</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Empresa</h3>
                     <ul>
@@ -298,7 +309,7 @@
                         <li><a href="#">Blog</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Contato</h3>
                     <div class="contact-info">
@@ -317,7 +328,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 GrowKid. Todos os direitos reservados.</p>
                 <div class="footer-links">
@@ -334,7 +345,7 @@
         function togglePassword(inputId, iconId) {
             const passwordInput = document.getElementById(inputId);
             const eyeIcon = document.getElementById(iconId);
-            
+
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
                 eyeIcon.classList.remove('fa-eye');
@@ -347,7 +358,7 @@
         }
 
         // Máscara para telefone
-        document.getElementById('phone').addEventListener('input', function(e) {
+        document.getElementById('phone').addEventListener('input', function (e) {
             let value = e.target.value.replace(/\D/g, '');
             if (value.length >= 11) {
                 value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
@@ -360,31 +371,31 @@
         });
 
         // Validação do formulário
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
-            
+
             // Validações
             if (data.password !== data.confirmPassword) {
                 showMessage('As senhas não coincidem!', 'error');
                 return;
             }
-            
+
             if (data.password.length < 6) {
                 showMessage('A senha deve ter pelo menos 6 caracteres!', 'error');
                 return;
             }
-            
+
             if (!data.terms) {
                 showMessage('Você deve aceitar os termos de uso!', 'error');
                 return;
             }
-            
+
             // Simular cadastro
             showMessage('Criando sua conta...', 'loading');
-            
+
             setTimeout(() => {
                 showMessage('Conta criada com sucesso! Redirecionando...', 'success');
                 setTimeout(() => {
@@ -399,11 +410,11 @@
             if (existingMessage) {
                 existingMessage.remove();
             }
-            
+
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${type}`;
             messageDiv.textContent = message;
-            
+
             messageDiv.style.cssText = `
                 position: fixed;
                 top: 20px;
@@ -415,8 +426,8 @@
                 z-index: 1000;
                 animation: slideInRight 0.3s ease;
             `;
-            
-            switch(type) {
+
+            switch (type) {
                 case 'success':
                     messageDiv.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
                     break;
@@ -427,9 +438,9 @@
                     messageDiv.style.background = 'linear-gradient(135deg, #2196F3, #1976D2)';
                     break;
             }
-            
+
             document.body.appendChild(messageDiv);
-            
+
             if (type !== 'loading') {
                 setTimeout(() => {
                     messageDiv.style.animation = 'slideOutRight 0.3s ease';
@@ -443,4 +454,5 @@
         }
     </script>
 </body>
+
 </html>

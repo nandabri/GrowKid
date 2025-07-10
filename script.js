@@ -2,7 +2,7 @@
 function togglePassword() {
     const passwordInput = document.getElementById('password');
     const eyeIcon = document.getElementById('eyeIcon');
-    
+
     if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
         eyeIcon.classList.remove('fa-eye');
@@ -15,37 +15,37 @@ function togglePassword() {
 }
 
 // Função para lidar com o envio do formulário
-document.getElementById('loginForm').addEventListener('submit', function(e) {
+document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const remember = document.getElementById('remember').checked;
-    
+
     // Validação básica
     if (!email || !password) {
         showMessage('Por favor, preencha todos os campos.', 'error');
         return;
     }
-    
+
     if (!isValidEmail(email)) {
         showMessage('Por favor, insira um email válido.', 'error');
         return;
     }
-    
+
     // Simulação de login
     showMessage('Entrando...', 'loading');
-    
+
     setTimeout(() => {
         // Aqui você conectaria com seu backend
         if (email === 'demo@growkid.com' && password === 'demo123') {
             showMessage('Login realizado com sucesso!', 'success');
-            
+
             // Salvar dados se "Lembrar de mim" estiver marcado
             if (remember) {
                 localStorage.setItem('rememberedEmail', email);
             }
-            
+
             // Redirecionar para o dashboard (simulado)
             setTimeout(() => {
                 window.location.href = 'dashboard.html';
@@ -69,11 +69,11 @@ function showMessage(message, type) {
     if (existingMessage) {
         existingMessage.remove();
     }
-    
+
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${type}`;
     messageDiv.textContent = message;
-    
+
     // Estilos para a mensagem
     messageDiv.style.cssText = `
         position: fixed;
@@ -86,9 +86,9 @@ function showMessage(message, type) {
         z-index: 1000;
         animation: slideInRight 0.3s ease;
     `;
-    
+
     // Cores baseadas no tipo
-    switch(type) {
+    switch (type) {
         case 'success':
             messageDiv.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
             break;
@@ -99,9 +99,9 @@ function showMessage(message, type) {
             messageDiv.style.background = 'linear-gradient(135deg, #2196F3, #1976D2)';
             break;
     }
-    
+
     document.body.appendChild(messageDiv);
-    
+
     // Remove a mensagem após 3 segundos (exceto loading)
     if (type !== 'loading') {
         setTimeout(() => {
@@ -116,7 +116,7 @@ function showMessage(message, type) {
 }
 
 // Carregar email lembrado ao carregar a página
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     const rememberedEmail = localStorage.getItem('rememberedEmail');
     if (rememberedEmail) {
         document.getElementById('email').value = rememberedEmail;
@@ -137,7 +137,7 @@ style.textContent = `
             opacity: 1;
         }
     }
-    
+
     @keyframes slideOutRight {
         from {
             transform: translateX(0);
@@ -153,24 +153,24 @@ document.head.appendChild(style);
 
 // Efeitos visuais para os inputs
 document.querySelectorAll('input').forEach(input => {
-    input.addEventListener('focus', function() {
+    input.addEventListener('focus', function () {
         this.parentNode.style.transform = 'scale(1.02)';
     });
-    
-    input.addEventListener('blur', function() {
+
+    input.addEventListener('blur', function () {
         this.parentNode.style.transform = 'scale(1)';
     });
 });
 
 // Login social (simulado)
-document.querySelector('.google-btn').addEventListener('click', function() {
+document.querySelector('.google-btn').addEventListener('click', function () {
     showMessage('Redirecionando para o Google...', 'loading');
     setTimeout(() => {
         showMessage('Login com Google não implementado ainda.', 'error');
     }, 2000);
 });
 
-document.querySelector('.facebook-btn').addEventListener('click', function() {
+document.querySelector('.facebook-btn').addEventListener('click', function () {
     showMessage('Redirecionando para o Facebook...', 'loading');
     setTimeout(() => {
         showMessage('Login com Facebook não implementado ainda.', 'error');
@@ -181,7 +181,7 @@ document.querySelector('.facebook-btn').addEventListener('click', function() {
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
-    
+
     function type() {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);
@@ -189,27 +189,27 @@ function typeWriter(element, text, speed = 100) {
             setTimeout(type, speed);
         }
     }
-    
+
     type();
 }
 
 // Executar efeito de digitação quando a página carregar
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     const subtitle = document.querySelector('.subtitle');
     const originalText = subtitle.textContent;
     typeWriter(subtitle, originalText, 50);
 });
 
 // Menu mobile toggle
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const headerNav = document.querySelector('.header-nav');
-    
+
     if (mobileMenuToggle && headerNav) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function () {
             headerNav.classList.toggle('mobile-nav-open');
             const icon = this.querySelector('i');
-            
+
             if (headerNav.classList.contains('mobile-nav-open')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.classList.add('fa-bars');
             }
         });
-        
+
         // Fechar menu ao clicar em um link
         headerNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
@@ -245,7 +245,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Header scroll effect
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const header = document.querySelector('.site-header');
     if (header) {
         if (window.scrollY > 50) {
